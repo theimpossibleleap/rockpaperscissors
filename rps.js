@@ -9,14 +9,11 @@ function getComputerChoice() {
 
 // A function to get the player choice from a prompt, validate that it's either Rock, Paper, or Scissors, and return the value.
 function getPlayerChoice() {
-    let playerChoice = prompt("Please make a choice: Rock, Paper, or Scissors.");
+    let playerChoice = prompt(
+        "Please make a choice: Rock, Paper, or Scissors."
+    ).toLowerCase();
 
-    if (!gameChoices.includes(playerChoice.toLowerCase())) {
-        getPlayerChoice();
-    } else {
-        let playerCase = playerChoice.toLowerCase();
-        return playerCase;
-    } 
+    return !gameChoices.includes(playerChoice) ? getPlayerChoice(): playerChoice;
 
 }
 
