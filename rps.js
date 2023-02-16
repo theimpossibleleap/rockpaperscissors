@@ -40,42 +40,42 @@ function playRound(compPlay, playerPlay) {
     const loseString = "You lost this round.. ( • ᴖ • ｡)";
     const tieString = "You tied this round. ¯\\_(ツ)_/¯";
 
-    console.log("You picked: " + playerPlay);
-    console.log("The computer picked: " + compPlay);
+    console.log(`You picked: ${playerPlay}
+The computer picked: ${compPlay}`);
 
     if (compPlay == playerPlay) {
         console.log(tieString)
-        return roundResults.unshift("Tied!");
+        return roundResults.unshift("tie");
     } 
 
     if (compPlay == "rock" && playerPlay == "scissors") {
         console.log(loseString)
-        return roundResults.unshift("Lost!");
+        return roundResults.unshift("loss");
     }
 
     if (compPlay == "rock" && playerPlay == "paper") {
         console.log(winString)
-            return roundResults.unshift("Win!");
+            return roundResults.unshift("win");
     }
 
     if (compPlay == "paper" && playerPlay == "rock") {
         console.log(loseString)
-        return roundResults.unshift("Lost!");
+        return roundResults.unshift("loss");
     }
 
     if (compPlay == "paper" && playerPlay == "scissors") {
         console.log(winString)
-            return roundResults.unshift("Win!");
+            return roundResults.unshift("win");
     }
 
     if (compPlay == "scissors" && playerPlay == "paper") {
         console.log(loseString)
-        return roundResults.unshift("Lost!");
+        return roundResults.unshift("loss");
     }
 
     if (compPlay == "scissors" && playerPlay == "rock") {
         console.log(winString)
-            return roundResults.unshift("Win!");
+            return roundResults.unshift("win");
     }
 }
 
@@ -87,7 +87,7 @@ function winCount() {
     let wins = 0;
 
     for (let i = 0; i < roundResults.length; ++i) {
-        if (roundResults[i] == "Win!") {
+        if (roundResults[i] == "win") {
             wins++;
         }
     }
@@ -103,7 +103,7 @@ function lossCount() {
     let losses = 0;
 
     for (let i = 0; i < roundResults.length; ++i) {
-        if (roundResults[i] == "Lost!") {
+        if (roundResults[i] == "loss") {
             losses++;
         }
     }
@@ -120,16 +120,19 @@ function playGame(arg1, arg2) {
 
     let wins = winCount();
     let losses = lossCount();
-    
-    console.log("Wins: " + wins);
-    console.log("Losses: " + losses);
+
+    console.log(`
+Wins: ${wins}
+Losses: ${losses}
+
+`);
     
     if (wins === 3) {
-        alert("You win the game!");
+        console.log("You won the game!")
         alert("Click 'Close' to restart");
         location.reload();
     } else if (losses === 3) {
-        alert("You lost the game!");
+        console.log("You lost the game..")
         alert("Click 'Close' to restart");
         location.reload();
     } else {
