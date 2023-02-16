@@ -40,23 +40,30 @@ function playRound(compPlay, playerPlay) {
     console.log("The computer picked: " + compPlay);
     
     if (compPlay == playerPlay) {
-        console.log("You tied, play again!");
+        console.log("You tied this round. ¯\\_(ツ)_/¯")
+        return roundResults.push("Tied!");
     } else if (compPlay == "rock") {
         if (playerPlay == "scissors") {
+            console.log("You lost this round.. ( • ᴖ • ｡)")
             return roundResults.push("Lost!");
         } else if (playerPlay == "paper") {
+            console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
             return roundResults.push("Win!");
         }
     } else if (compPlay == "scissors") {
         if (playerPlay == "paper") {
+            console.log("You lost this round.. ( • ᴖ • ｡)")
             return roundResults.push("Lost!");
         } else if (playerPlay == "rock") {
+            console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
             return roundResults.push("Win!");
         }
     } else if (compPlay == "paper") {
         if (playerPlay == "rock") {
+            console.log("You lost this round.. ( • ᴖ • ｡)")
             return roundResults.push("Lost!");
         } else if (playerPlay == "scissors") {
+            console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
             return roundResults.push("Win!");
         }
     }
@@ -100,13 +107,12 @@ function lossCount() {
 
 function playGame(arg1, arg2) {
     playRound(arg1, arg2);
-    console.log(roundResults);
 
     let wins = winCount();
     let losses = lossCount();
 
-    console.log(wins);
-    console.log(losses);
+    console.log("Wins: " + wins);
+    console.log("Losses: " + losses);
     
     if (wins === 3) {
         alert("You win the game!");
