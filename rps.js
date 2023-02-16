@@ -36,41 +36,45 @@ function getPlayerChoice() {
 
 function playRound(compPlay, playerPlay) {
 
+    const winString = "You won this round! ৻(  •̀ ᗜ •́  ৻)";
+    const loseString = "You lost this round.. ( • ᴖ • ｡)";
+    const tieString = "You tied this round. ¯\\_(ツ)_/¯";
+
     console.log("You picked: " + playerPlay);
     console.log("The computer picked: " + compPlay);
 
     if (compPlay == playerPlay) {
-        console.log("You tied this round. ¯\\_(ツ)_/¯")
+        console.log(tieString)
         return roundResults.unshift("Tied!");
     } 
 
     if (compPlay == "rock" && playerPlay == "scissors") {
-        console.log("You lost this round.. ( • ᴖ • ｡)")
+        console.log(loseString)
         return roundResults.unshift("Lost!");
     }
 
     if (compPlay == "rock" && playerPlay == "paper") {
-        console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
+        console.log(winString)
             return roundResults.unshift("Win!");
     }
 
     if (compPlay == "paper" && playerPlay == "rock") {
-        console.log("You lost this round.. ( • ᴖ • ｡)")
+        console.log(loseString)
         return roundResults.unshift("Lost!");
     }
 
     if (compPlay == "paper" && playerPlay == "scissors") {
-        console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
+        console.log(winString)
             return roundResults.unshift("Win!");
     }
 
     if (compPlay == "scissors" && playerPlay == "paper") {
-        console.log("You lost this round.. ( • ᴖ • ｡)")
+        console.log(loseString)
         return roundResults.unshift("Lost!");
     }
 
     if (compPlay == "scissors" && playerPlay == "rock") {
-        console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
+        console.log(winString)
             return roundResults.unshift("Win!");
     }
 }
