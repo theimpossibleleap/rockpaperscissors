@@ -31,4 +31,4 @@ function playRound(computerSelection, playerSelection) {
     console.log(playerRound);
 }
 
-playRound();
+playRound(computerSelection, playerSelection);
