@@ -24,7 +24,11 @@ console.log(computerSelection);
 console.log(playerSelection);
 
 function playRound(computerSelection, playerSelection) {
-    
+    let compRound = computerSelection;
+    let playerRound = playerSelection;
+
+    console.log(compRound);
+    console.log(playerRound);
 }
 
-//playRound();
+playRound();
