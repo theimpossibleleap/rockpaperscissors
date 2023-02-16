@@ -38,34 +38,40 @@ function playRound(compPlay, playerPlay) {
 
     console.log("You picked: " + playerPlay);
     console.log("The computer picked: " + compPlay);
-    
+
     if (compPlay == playerPlay) {
         console.log("You tied this round. ¯\\_(ツ)_/¯")
         return roundResults.unshift("Tied!");
-    } else if (compPlay == "rock") {
-        if (playerPlay == "scissors") {
-            console.log("You lost this round.. ( • ᴖ • ｡)")
-            return roundResults.unshift("Lost!");
-        } else if (playerPlay == "paper") {
-            console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
+    } 
+
+    if (compPlay == "rock" && playerPlay == "scissors") {
+        console.log("You lost this round.. ( • ᴖ • ｡)")
+        return roundResults.unshift("Lost!");
+    }
+
+    if (compPlay == "rock" && playerPlay == "paper") {
+        console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
             return roundResults.unshift("Win!");
-        }
-    } else if (compPlay == "scissors") {
-        if (playerPlay == "paper") {
-            console.log("You lost this round.. ( • ᴖ • ｡)")
-            return roundResults.unshift("Lost!");
-        } else if (playerPlay == "rock") {
-            console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
+    }
+
+    if (compPlay == "paper" && playerPlay == "rock") {
+        console.log("You lost this round.. ( • ᴖ • ｡)")
+        return roundResults.unshift("Lost!");
+    }
+
+    if (compPlay == "paper" && playerPlay == "scissors") {
+        console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
             return roundResults.unshift("Win!");
-        }
-    } else if (compPlay == "paper") {
-        if (playerPlay == "rock") {
-            console.log("You lost this round.. ( • ᴖ • ｡)")
-            return roundResults.unshift("Lost!");
-        } else if (playerPlay == "scissors") {
-            console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
+    }
+
+    if (compPlay == "scissors" && playerPlay == "paper") {
+        console.log("You lost this round.. ( • ᴖ • ｡)")
+        return roundResults.unshift("Lost!");
+    }
+
+    if (compPlay == "scissors" && playerPlay == "rock") {
+        console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
             return roundResults.unshift("Win!");
-        }
     }
 }
 
