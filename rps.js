@@ -23,8 +23,8 @@ let playerSelection = getPlayerChoice();
 console.log(computerSelection);
 console.log(playerSelection);
 
-function playRound(computerSelection, playerSelection) {
-    
+function playRound(compSelect, playSelect) {
+    console.log(compSelect, playSelect);
 }
 
-//playRound();
+playRound(computerSelection, playerSelection);
