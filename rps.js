@@ -1,6 +1,11 @@
 // An array for all choices available to the computer and the player.
 
-const gameChoices = ["rock", "paper", "scissors"];
+const gameChoices = [
+    "rock",
+    "paper",
+    "scissors"
+];
+
 let roundResults = [];
 let tieGame = [];
 
@@ -31,8 +36,8 @@ function getPlayerChoice() {
 
 function playRound(compPlay, playerPlay) {
 
-    console.log("You picked: " + compPlay);
-    console.log("The computer picked: " + playerPlay);
+    console.log("You picked: " + playerPlay);
+    console.log("The computer picked: " + compPlay);
     
     if (compPlay == playerPlay) {
         console.log("You tied, play again!");
