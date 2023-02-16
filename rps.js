@@ -23,6 +23,7 @@ let playerSelection = getPlayerChoice();
 console.log(computerSelection);
 console.log(playerSelection);
 
+<<<<<<< HEAD
 function playRound(computerSelection, playerSelection) {
     let compRound = computerSelection;
     let playerRound = playerSelection;
@@ -32,3 +33,10 @@ function playRound(computerSelection, playerSelection) {
 }
 
 playRound();
+=======
+function playRound(compSelect, playSelect) {
+    console.log(compSelect, playSelect);
+}
+
+playRound(computerSelection, playerSelection);
+>>>>>>> 703681283750c10d31c73a9e63fd8b937f11b86b
