@@ -1,8 +1,7 @@
 // An array for all choices available to the computer and the player.
 const gameChoices = ["rock", "paper", "scissors"];
-const roundResults = [];
-const roundWin = [];
-const roundLoss = [];
+let roundResults = [];
+let tieGame = [];
 
 // A function to randomly assign a value from the array of choices to the computer selection.
 function getComputerChoice() {
@@ -26,7 +25,7 @@ function playRound(compPlay, playerPlay) {
     console.log("The computer picked: " + playerPlay);
     
     if (compPlay == playerPlay) {
-        return roundResults.push("Tie!");
+        console.log("You tied, play again!");
     } else if (compPlay == "rock") {
         if (playerPlay == "scissors") {
             return roundResults.push("Lost!");
@@ -48,31 +47,55 @@ function playRound(compPlay, playerPlay) {
     }
 }
 
+// A function to count the number of wins after reach round.
 function winCount() {
-    for (i = 0; i < 4; i++) {
+    let wins = 0;
+
+    for (let i = 0; i < roundResults.length; ++i) {
         if (roundResults[i] == "Win!") {
-            return roundWin.push[i];
-        } else if (roundResults[i] == "Lost!") {
-            return roundLoss.push[i];
+            wins++;
         }
     }
+
+    return wins;
 }
+
+// A function to count the number of losses after reach round.
+function lossCount() {
+    let losses = 0;
+
+    for (let i = 0; i < roundResults.length; ++i) {
+        if (roundResults[i] == "Lost!") {
+            losses++;
+        }
+    }
+
+    return losses;
+}
+
+// A function that is called to accept the player input, generate the computers choice, play a round, count the number of wins and losses each roud, and once you either win 3 or lose 3, it shows you the winner. The game then restarts.
 
 function playGame(arg1, arg2) {
     playRound(arg1, arg2);
     console.log(roundResults);
-    winCount();
-    console.log(roundWin);
-    console.log(roundLoss);
-    
-    if (roundWin.length < 4 || roundLoss.length < 4) {
-        return playGame(getComputerChoice(), getPlayerChoice());
-    } else if (roundWin.length == 3) {
-        console.log("You win the game!");
-    } else if (roundLoss.length == 3) {
-        console.log("You lose the game!");
-    }
 
+    let wins = winCount();
+    let losses = lossCount();
+
+    console.log(wins);
+    console.log(losses);
+    
+    if (wins === 3) {
+        alert("You win the game!");
+        alert("Click 'Close' to restart");
+        location.reload();
+    } else if (losses === 3) {
+        alert("You lost the game!");
+        alert("Click 'Close' to restart");
+        location.reload();
+    } else {
+        playGame(getComputerChoice(), getPlayerChoice());
+    }
 }
 
 playGame(getComputerChoice(), getPlayerChoice());
