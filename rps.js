@@ -41,30 +41,30 @@ function playRound(compPlay, playerPlay) {
     
     if (compPlay == playerPlay) {
         console.log("You tied this round. ¯\\_(ツ)_/¯")
-        return roundResults.push("Tied!");
+        return roundResults.unshift("Tied!");
     } else if (compPlay == "rock") {
         if (playerPlay == "scissors") {
             console.log("You lost this round.. ( • ᴖ • ｡)")
-            return roundResults.push("Lost!");
+            return roundResults.unshift("Lost!");
         } else if (playerPlay == "paper") {
             console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
-            return roundResults.push("Win!");
+            return roundResults.unshift("Win!");
         }
     } else if (compPlay == "scissors") {
         if (playerPlay == "paper") {
             console.log("You lost this round.. ( • ᴖ • ｡)")
-            return roundResults.push("Lost!");
+            return roundResults.unshift("Lost!");
         } else if (playerPlay == "rock") {
             console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
-            return roundResults.push("Win!");
+            return roundResults.unshift("Win!");
         }
     } else if (compPlay == "paper") {
         if (playerPlay == "rock") {
             console.log("You lost this round.. ( • ᴖ • ｡)")
-            return roundResults.push("Lost!");
+            return roundResults.unshift("Lost!");
         } else if (playerPlay == "scissors") {
             console.log("You won this round! ৻(  •̀ ᗜ •́  ৻)")
-            return roundResults.push("Win!");
+            return roundResults.unshift("Win!");
         }
     }
 }
@@ -110,7 +110,7 @@ function playGame(arg1, arg2) {
 
     let wins = winCount();
     let losses = lossCount();
-
+    
     console.log("Wins: " + wins);
     console.log("Losses: " + losses);
     
