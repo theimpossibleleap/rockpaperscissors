@@ -71,8 +71,8 @@ playerChoiceArray.forEach(function(choice) {
             const tieString = `You tied this round. 
             ¯\\_(ツ)_/¯`;
 
-            matchResult.innerText = (`You picked: ${playerPlay}
-            The computer picked: ${compPlay}`);
+            matchResult.innerText = (`You picked: ${playerPlay.charAt(0).toUpperCase() + playerPlay.slice(1)}
+            The computer picked: ${compPlay.charAt(0).toUpperCase() + compPlay.slice(1)}`);
 
             if (compPlay == playerPlay) {
                 winLoss.innerText = (tieString);
