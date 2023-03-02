@@ -69,5 +69,30 @@ button {
 }
 
 button:hover {
-    background: black;
+    background: whitesmoke;
+    color: #131313;
+}
+
+#match, #winLoss{
+    margin-top: 50px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+#match {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    width: 750px;
+    height: 100px;
+}
+
+#winLoss {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    width: 750px;
+    height: 200px;
 }

@@ -8,6 +8,8 @@ let roundResults = [];
 
 let compResult = document.getElementById('compresult');
 let playResult = document.getElementById('playresult');
+let matchResult = document.getElementById('match');
+let winLoss = document.getElementById('winLoss');
 
 compResult.innerText = 0;
 playResult.innerText = 0;
@@ -47,7 +49,11 @@ function lossCount() {
 }
 
 
-const playerChoiceArray = [rockBtn, paperBtn, scissBtn];
+const playerChoiceArray = [
+    rockBtn,
+    paperBtn,
+    scissBtn
+];
 
 playerChoiceArray.forEach(function(choice) {
     choice.addEventListener('click', function() {
@@ -58,46 +64,56 @@ playerChoiceArray.forEach(function(choice) {
 
         function playRound(compPlay, playerPlay) {
 
-            const winString = "You won this round! ৻(  •̀ ᗜ •́  ৻)";
-            const loseString = "You lost this round.. ( • ᴖ • ｡)";
-            const tieString = "You tied this round. ¯\\_(ツ)_/¯";
+            const winString = `You won this round! 
+            ৻(  •̀ ᗜ •́  ৻)`;
+            const loseString = `You lost this round.. 
+            ( • ᴖ • ｡)`;
+            const tieString = `You tied this round. 
+            ¯\\_(ツ)_/¯`;
 
-            console.log(`You picked: ${playerPlay}
+            matchResult.innerText = (`You picked: ${playerPlay}
             The computer picked: ${compPlay}`);
 
             if (compPlay == playerPlay) {
-                console.log(tieString)
+                winLoss.innerText = (tieString);
+                winLoss.style.color = "#FFE677";
                 return roundResults.unshift("tie");
             } 
 
             if (compPlay == "rock" && playerPlay == "scissors") {
-                console.log(loseString)
+                winLoss.innerText = (loseString);
+                winLoss.style.color = "#A91D36";
                 return roundResults.unshift("loss");
             }
 
             if (compPlay == "rock" && playerPlay == "paper") {
-                console.log(winString)
-                    return roundResults.unshift("win");
+                winLoss.innerText = (winString);
+                winLoss.style.color = "#79B465";
+                return roundResults.unshift("win");
             }
 
             if (compPlay == "paper" && playerPlay == "rock") {
-                console.log(loseString)
+                winLoss.innerText = (loseString);
+                winLoss.style.color = "#A91D36";
                 return roundResults.unshift("loss");
             }
 
             if (compPlay == "paper" && playerPlay == "scissors") {
-                console.log(winString)
-                    return roundResults.unshift("win");
+                winLoss.innerText = (winString)
+                winLoss.style.color = "#79B465";
+                return roundResults.unshift("win");
             }
 
             if (compPlay == "scissors" && playerPlay == "paper") {
-                console.log(loseString)
+                winLoss.innerText = (loseString);
+                winLoss.style.color = "#A91D36";
                 return roundResults.unshift("loss");
             }
 
             if (compPlay == "scissors" && playerPlay == "rock") {
-                console.log(winString)
-                    return roundResults.unshift("win");
+                winLoss.innerText = (winString);
+                winLoss.style.color = "#79B465";
+                return roundResults.unshift("win");
             }
             }
 
