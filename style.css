@@ -3,6 +3,7 @@
 body {
     font-family: 'Roboto';
     margin: 0 auto;
+    background: #131313;
 }
 
 #container {
@@ -27,8 +28,9 @@ body {
     align-items: center;
     justify-content: center;
     flex: 1;
-    background: red;
+    background: rgb(27,84,72);
     color:white;
+    margin: 25px;
 }
 
 #playerResults {
@@ -37,8 +39,9 @@ body {
     align-items: center;
     justify-content: center;
     flex: 1;
-    background: blue;
+    background: rgb(27,84,72);
     color:white;
+    margin: 25px 25px 25px 0;
 }
 
 .result {
@@ -48,8 +51,23 @@ body {
 .title {
 }
 
-
-
 #choose {
     margin-top: 50px;
+}
+
+button {
+    all: unset;
+    background: rgb(27,84,72);
+    color: whitesmoke;
+    padding: 15px;
+    margin: 0 25px 0 25px;
+    border: 1px solid whitesmoke;
+    width: 150px;
+    text-align: center;
+    font-size: 1.5em;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    background: black;
 }
