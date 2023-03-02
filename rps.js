@@ -1,5 +1,3 @@
-// An array for all choices available to the computer and the player.
-
 const gameChoices = [
     "rock",
     "paper",
@@ -7,79 +5,16 @@ const gameChoices = [
 ];
 
 let roundResults = [];
-let tieGame = [];
 
+let compResult = document.getElementById('compresult');
+let playResult = document.getElementById('playresult');
 
+compResult.innerText = 0;
+playResult.innerText = 0;
 
-// A function to randomly assign a value from the array of choices to the computer selection.
-
-function getComputerChoice() {
-    let randomChoice = Math.floor(Math.random() * gameChoices.length);
-    return gameChoices[randomChoice];
-}
-
-
-
-// A function to get the player choice from a prompt, validate that it's either Rock, Paper, or Scissors, and return the value.
-
-function getPlayerChoice() {
-    let playerChoice = prompt(
-        "Please make a choice: Rock, Paper, or Scissors."
-    ).toLowerCase();
-
-    return !gameChoices.includes(playerChoice) ? getPlayerChoice(): playerChoice;
-}
-
-
-
-// A function to play a round and return the result to an array (win, lose, or tie).
-
-function playRound(compPlay, playerPlay) {
-
-    const winString = "You won this round! ৻(  •̀ ᗜ •́  ৻)";
-    const loseString = "You lost this round.. ( • ᴖ • ｡)";
-    const tieString = "You tied this round. ¯\\_(ツ)_/¯";
-
-    console.log(`You picked: ${playerPlay}
-The computer picked: ${compPlay}`);
-
-    if (compPlay == playerPlay) {
-        console.log(tieString)
-        return roundResults.unshift("tie");
-    } 
-
-    if (compPlay == "rock" && playerPlay == "scissors") {
-        console.log(loseString)
-        return roundResults.unshift("loss");
-    }
-
-    if (compPlay == "rock" && playerPlay == "paper") {
-        console.log(winString)
-            return roundResults.unshift("win");
-    }
-
-    if (compPlay == "paper" && playerPlay == "rock") {
-        console.log(loseString)
-        return roundResults.unshift("loss");
-    }
-
-    if (compPlay == "paper" && playerPlay == "scissors") {
-        console.log(winString)
-            return roundResults.unshift("win");
-    }
-
-    if (compPlay == "scissors" && playerPlay == "paper") {
-        console.log(loseString)
-        return roundResults.unshift("loss");
-    }
-
-    if (compPlay == "scissors" && playerPlay == "rock") {
-        console.log(winString)
-            return roundResults.unshift("win");
-    }
-}
-
-
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper');
+const scissBtn = document.getElementById('scissors');
 
 // A function to count the number of wins after reach round.
 
@@ -112,32 +47,66 @@ function lossCount() {
 }
 
 
+const playerChoiceArray = [rockBtn, paperBtn, scissBtn];
 
-// A function that is called to accept the player input, generate the computers choice, play a round, count the number of wins and losses each roud, and once you either win 3 or lose 3, it shows you the winner. The game then restarts.
+playerChoiceArray.forEach(function(choice) {
+    choice.addEventListener('click', function() {
+        function getComputerChoice() {
+            let randomChoice = Math.floor(Math.random() * gameChoices.length);
+            return gameChoices[randomChoice];
+        }
 
-function playGame(arg1, arg2) {
-    playRound(arg1, arg2);
+        function playRound(compPlay, playerPlay) {
 
-    let wins = winCount();
-    let losses = lossCount();
+            const winString = "You won this round! ৻(  •̀ ᗜ •́  ৻)";
+            const loseString = "You lost this round.. ( • ᴖ • ｡)";
+            const tieString = "You tied this round. ¯\\_(ツ)_/¯";
 
-    console.log(`
-Wins: ${wins}
-Losses: ${losses}
+            console.log(`You picked: ${playerPlay}
+            The computer picked: ${compPlay}`);
 
-`);
-    
-    if (wins === 3) {
-        console.log("You won the game!")
-        alert("Click 'Close' to restart");
-        location.reload();
-    } else if (losses === 3) {
-        console.log("You lost the game..")
-        alert("Click 'Close' to restart");
-        location.reload();
-    } else {
-        playGame(getComputerChoice(), getPlayerChoice());
-    }
-}
+            if (compPlay == playerPlay) {
+                console.log(tieString)
+                return roundResults.unshift("tie");
+            } 
 
-playGame(getComputerChoice(), getPlayerChoice());
+            if (compPlay == "rock" && playerPlay == "scissors") {
+                console.log(loseString)
+                return roundResults.unshift("loss");
+            }
+
+            if (compPlay == "rock" && playerPlay == "paper") {
+                console.log(winString)
+                    return roundResults.unshift("win");
+            }
+
+            if (compPlay == "paper" && playerPlay == "rock") {
+                console.log(loseString)
+                return roundResults.unshift("loss");
+            }
+
+            if (compPlay == "paper" && playerPlay == "scissors") {
+                console.log(winString)
+                    return roundResults.unshift("win");
+            }
+
+            if (compPlay == "scissors" && playerPlay == "paper") {
+                console.log(loseString)
+                return roundResults.unshift("loss");
+            }
+
+            if (compPlay == "scissors" && playerPlay == "rock") {
+                console.log(winString)
+                    return roundResults.unshift("win");
+            }
+            }
+
+        playRound(getComputerChoice(), this.id);
+
+        console.log(roundResults);
+
+        compResult.innerText = lossCount();
+        playResult.innerText = winCount();
+
+        });
+});
