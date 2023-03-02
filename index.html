@@ -5,18 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="choose">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-    </div>
-    <div id="results">
-        
+    <div id="container">
+        <div id="results">
+            <div id="computerResults">
+                <div id="compresult" class="result"></div>
+                <div class="title">Computer Wins</div>
+            </div>
+            <div id="playerResults">
+                <div id="playresult" class="result"></div>
+                <div class="title">Player Wins</div>
+            </div>
+        </div>
+
+        <div id="choose">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
     </div>
 </body>
-<!-- <script type="text/javascript" src="rps.js"></script> -->
-<script type="text/javascript" src="rps.js"></script>
+
+<script type="text/javascript">
+
+    let compResult = document.getElementById('compresult');
+    let playResult = document.getElementById('playresult');
+
+    compResult.innerText = 0;
+    playResult.innerText = 0;
+
+    const rockBtn = document.getElementById('rock');
+    const paperBtn = document.getElementById('paper');
+    const scissBtn = document.getElementById('scissors');
+
+    rockBtn.addEventListener('click', function() {
+        console.log(this.id);
+    })
+
+    paperBtn.addEventListener('click', function() {
+        console.log(this.id);
+    })
+
+    scissBtn.addEventListener('click', function() {
+        console.log(this.id);
+    })
+
+
+
+
+</script>
 
 </html>
