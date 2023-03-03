@@ -23,6 +23,7 @@ body {
     left: 0;
     z-index: 1000;
     background: rgb(0,0,0, 0.9);
+    font-weight: 900;
 }
 
 p#win {
