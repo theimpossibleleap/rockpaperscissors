@@ -10,6 +10,8 @@ let compResult = document.getElementById('compresult');
 let playResult = document.getElementById('playresult');
 let matchResult = document.getElementById('match');
 let winLoss = document.getElementById('winLoss');
+let winGame = document.getElementById('winContainer');
+let loseGame = document.getElementById('loseContainer');
 
 compResult.innerText = 0;
 playResult.innerText = 0;
@@ -115,14 +117,21 @@ playerChoiceArray.forEach(function(choice) {
                 winLoss.style.color = "#79B465";
                 return roundResults.unshift("win");
             }
+        };
+
+            playRound(getComputerChoice(), this.id);
+
+            if (winCount() == 5) {
+                console.log('win');
+                winGame.className += ' show'
+            } else if (lossCount() == 5) {
+                console.log('lose');
+                loseGame.className += ' show'
             }
 
-        playRound(getComputerChoice(), this.id);
+            compResult.innerText = lossCount();
+            playResult.innerText = winCount();
 
-        console.log(roundResults);
-
-        compResult.innerText = lossCount();
-        playResult.innerText = winCount();
 
         });
 });
