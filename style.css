@@ -22,23 +22,26 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    background: black;
+    background: rgb(0,0,0, 0.9);
 }
 
 p#win {
-    font-size: 5em;
-    color: white;
+    font-size: 7.5em;
+    color: whitesmoke;
     text-transform: uppercase;
+    margin:0;
 }
 
 p#lose {
-    font-size: 5em;
-    color: white;
+    font-size: 7.5em;
+    color: whitesmoke;
     text-transform: uppercase;
+    margin:0;
 }
 
 button#reload {
     width: 250px;
+    margin:0;
 }
 
 #container {
