@@ -86,14 +86,17 @@ button#reload {
 
 .result {
     font-size: 12em;
+    font-weight: 900;
 }
 
 .title {
     font-size: 1.5em;
+    font-weight: 300;
 }
 
 #choose {
     margin-top: 50px;
+    font-weight: 900;
 }
 
 button {
@@ -127,6 +130,7 @@ button:hover {
     font-size: 2em;
     width: 750px;
     height: 100px;
+    font-weight: 300;
 }
 
 #winLoss {
